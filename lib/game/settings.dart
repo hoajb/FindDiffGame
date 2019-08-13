@@ -1,6 +1,7 @@
-const double CIRCLE_CHECK_SIZE = 50.0;
+const double CIRCLE_CHECK_SIZE = 40.0;
 const int NUM_DIFF = 5;
 const int TIME_COUNT = 60;
+const double RANGE_TOUCH = 10.0;
 
 const double BLUR_BACKGROUND = 5.0;
 

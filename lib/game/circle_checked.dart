@@ -16,3 +16,27 @@ class _CircleCheckedState extends State<CircleChecked> {
     );
   }
 }
+
+class CircleHintChecked extends StatefulWidget {
+  Color color;
+
+  CircleHintChecked(this.color);
+
+  @override
+  _CircleHintCheckedState createState() => _CircleHintCheckedState(this.color);
+}
+
+class _CircleHintCheckedState extends State<CircleHintChecked> {
+  Color color;
+
+  _CircleHintCheckedState(this.color);
+
+  @override
+  Widget build(BuildContext context) {
+    return Icon(
+      Icons.check_circle_outline,
+      color: color,
+      size: CIRCLE_CHECK_SIZE,
+    );
+  }
+}
