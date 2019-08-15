@@ -7,6 +7,17 @@ class GameData {
   String urlB = "";
   List<Rect> listRect = List();
 
+  @override
+  String toString() {
+    String rRect = "";
+    for (Rect rect in listRect) {
+      rRect += '\n';
+      rRect += rect.toString();
+    }
+    rRect += '\n';
+    return "GameData{$urlA,$urlB,$rRect}";
+  }
+
   bool isTouchInRect(Rect touch) {
     for (Rect rect in listRect) {
       if (!rect.checked &&
@@ -26,11 +37,23 @@ class GameData {
   GameData.fakeImage3() {
     urlA = 'images/Image3a.png';
     urlB = 'images/Image3b.png';
-    listRect.add(Rect(10, 10));
-    listRect.add(Rect(50, 50));
-    listRect.add(Rect(200, 200));
-    listRect.add(Rect(100, 200));
-    listRect.add(Rect(50, 130));
+
+    var random = Random.secure();
+    for (int i = 0; i < 5; i++) {
+      listRect.add(
+          Rect(random.nextInt(300).toDouble(), random.nextInt(200).toDouble()));
+    }
+  }
+
+  GameData.fakeImage(int numFile) {
+    urlA = 'images/Image${numFile}a.png';
+    urlB = 'images/Image${numFile}b.png';
+
+    var random = Random.secure();
+    for (int i = 0; i < 5; i++) {
+      listRect.add(
+          Rect(random.nextInt(300).toDouble(), random.nextInt(200).toDouble()));
+    }
   }
 }
 
@@ -49,6 +72,11 @@ class Rect {
   }
 
   Rect(this.x, this.y);
+
+  @override
+  String toString() {
+    return "Rect[$x,$y]";
+  }
 }
 
 class Range {
